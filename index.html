@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nginx Test Lab</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">⚡ Nginx Test Lab</div>
+      <p class="subtitle">A lightweight web app for testing proxying, caching, & headers.</p>
+    </header>
+
+    <main class="grid">
+      <!-- Status Card -->
+      <section class="card">
+        <h2>Server Inspection</h2>
+        <p class="desc">Inspect the response details served by Nginx.</p>
+        <button id="inspect-btn">Fetch Response Headers</button>
+        <div id="headers-output" class="output-box hidden">
+          <pre><code id="headers-content"></code></pre>
+        </div>
+      </section>
+
+      <!-- Load Simulator Card -->
+      <section class="card">
+        <h2>Traffic Load Simulator</h2>
+        <p class="desc">Simulate concurrent traffic to test Nginx rate limiting or caching.</p>
+        <div class="controls">
+          <label for="req-count">Requests to fire:</label>
+          <input type="number" id="req-count" min="1" max="100" value="10" />
+          <button id="simulate-btn">Run Load Test</button>
+        </div>
+        <div class="progress-bar-container hidden" id="progress-container">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <p id="sim-status" class="status-text"></p>
+      </section>
+
+      <!-- Cache Testing Card -->
+      <section class="card">
+        <h2>Cache / Asset Test</h2>
+        <p class="desc">Click to load dynamic timestamps and test proxy caching response times.</p>
+        <button id="time-btn">Get Server Timestamp</button>
+        <div class="timestamp-box">
+          <span id="timestamp-display">-- : -- : --</span>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Hosted via <strong>Nginx</strong> • Ready for reverse proxy & SSL configuration</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
